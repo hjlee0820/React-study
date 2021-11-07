@@ -1,20 +1,17 @@
-import World from "./World";
-import styles from "./Hello.module.css";
+import { useState } from "react";
 
 export default function Hello() {
+  const [name, setName] = useState("Mike");
+
+  function changeName() {
+    setName(name === "Mike" ? "Jane" : "Mike");
+  }
+
   return (
     <div>
-      <h1
-        style={{
-          color: "#f00",
-          borderRight: "12px solid #000",
-          marginBottom: "30px",
-          opacity: 1,
-        }}
-      >
-        Hello
-      </h1>
-      <div className={styles.box}>Hello</div>
+      <h1>State</h1>
+      <h2>{name}</h2>
+      <button onClick={changeName}>Change</button>
     </div>
   );
 }
